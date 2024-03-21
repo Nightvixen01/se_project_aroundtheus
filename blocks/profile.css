@@ -45,6 +45,7 @@
   border-width: 2px;
   border-style: solid;
   border-color: white;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
@@ -99,10 +100,12 @@
 
   .profile__title {
     font-size: 22px;
+    line-height: 26.63px;
   }
 
   .profile__description {
     font-size: 14px;
+    line-height: 16.94px;
   }
 
   .profile__info {
@@ -110,6 +113,7 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    grid-row-gap: 14px;
   }
 
   .profile__description {
