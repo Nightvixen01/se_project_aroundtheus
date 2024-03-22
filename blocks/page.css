@@ -22,11 +22,13 @@
   border-bottom-color: rgba(84, 84, 84, 0.7);
   border-bottom-width: 1px;
   border-bottom-style: solid;
+  box-sizing: border-box;
 }
 
 .page__header_image {
   width: 173px;
   height: 33px;
+  padding-bottom: 41px;
 }
 
 @media screen and (max-width: 620px) {
@@ -39,5 +41,6 @@
   .page__header_image {
     width: 126px;
     height: 24px;
+    padding-bottom: 32px;
   }
 }
