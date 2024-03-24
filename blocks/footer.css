@@ -15,6 +15,13 @@
   margin: 0;
 }
 
+@media screen and (max-width: 930px) and (min-width: 621px) {
+  .footer {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .footer {
     margin-top: 48px;
