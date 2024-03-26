@@ -3,6 +3,7 @@
   align-items: center;
   margin-top: 40px;
   min-width: 282px;
+  box-sizing: border-box;
 }
 
 .profile__info {
@@ -92,8 +93,8 @@
 
 @media screen and (max-width: 930px) and (min-width: 621px) {
   .profile {
-    margin-right: 20px;
-    margin-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
