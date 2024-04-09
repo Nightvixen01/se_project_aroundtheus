@@ -31,6 +31,7 @@
   border-color: white;
   position: relative;
   padding: 0px;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
@@ -47,6 +48,7 @@
   border-style: solid;
   border-color: white;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
