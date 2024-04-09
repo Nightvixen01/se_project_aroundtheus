@@ -24,7 +24,6 @@
   border-color: #000;
   border-width: 1px;
   max-width: 430px;
-  max-height: 330px;
 }
 
 .modal__close-button {
@@ -82,7 +81,7 @@
   margin-bottom: 48px;
 }
 
-::placeholder {
+.modal__text-box::placeholder {
   opacity: 1;
   color: #000;
 }
@@ -108,7 +107,6 @@
 @media screen and (max-width: 620px) {
   .modal__container {
     max-width: 282px;
-    max-height: 322px;
     padding: 25px 22px;
     box-sizing: border-box;
   }
