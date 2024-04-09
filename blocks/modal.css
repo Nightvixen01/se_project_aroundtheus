@@ -98,6 +98,7 @@
   width: 358px;
   height: 50.15px;
   padding: 0;
+  cursor: pointer;
 }
 
 .modal__save-button:hover {
