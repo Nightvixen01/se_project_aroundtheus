@@ -9,6 +9,7 @@
   height: 282px;
   border-top-left-radius: 10px 10px;
   border-top-right-radius: 10px 10px;
+  cursor: pointer;
 }
 
 .card__description {
@@ -39,13 +40,33 @@
 }
 
 .card__like-button {
-  background: transparent url(../images/heart_full-opacity.svg) center no-repeat;
+  background: transparent url(../images/heart_btn.svg) center no-repeat;
   width: 21px;
   height: 18px;
   border: none;
   cursor: pointer;
 }
 
+.card__like-button_active {
+  background-image: url(../images/heart-btn_active.svg);
+}
+
 .card__like-button:hover {
-  background-image: url(../images/heart_low-opacity.svg);
+  opacity: 50%;
+}
+
+.card__trash-button {
+  background: transparent url(../images/trash_btn.svg) center no-repeat;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 18px;
+  height: 19.3px;
+  top: 36px;
+  right: -252px;
+}
+
+.card__trash-button:hover {
+  opacity: 60%;
 }

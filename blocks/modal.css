@@ -26,6 +26,16 @@
   max-width: 430px;
 }
 
+.modal__picture_container {
+  position: relative;
+  margin: auto;
+}
+
+.modal__picture {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
 .modal__close-button {
   width: 40px;
   height: 40px;
@@ -54,6 +64,16 @@
   margin: 0;
   padding-bottom: 54px;
   padding-right: 28px;
+}
+
+.modal_sub-heading {
+  position: relative;
+  margin: 10px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  line-height: 14.52px;
 }
 
 .modal__form {
