@@ -78,7 +78,7 @@ function getCardElement(cardData) {
     openModal(reviewPictureModal);
     let reviewPictureModalImage =
       reviewPictureModal.querySelector(".modal__picture");
-    let reviewPictureCaption =
+    const reviewPictureCaption =
       reviewPictureModal.querySelector(".modal_sub-heading");
     reviewPictureCaption.textContent = evt.target.alt;
     reviewPictureModalImage.src = evt.target.src;
