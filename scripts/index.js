@@ -54,43 +54,12 @@ const reviewPictureModal = document.querySelector("#reviewPictureModal");
 const reviewPictureCloseBtn =
   reviewPictureModal.querySelector("#picture_close-btn");
 
-//function for closing edit-modal for profile
-function closeProfileModal() {
-  profileEditModal.classList.remove("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
-//function for opening edit-modal for profile
-function openProfileModal() {
-  profileNameInput.value = profileName.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
-}
-
-//function for closing add-card-modal for profile
-function closeCardAddModal() {
-  cardAddModal.classList.remove("modal_opened");
-}
-
-//function for opening add-card-modal for profile
-function openCardAddModal() {
-  cardAddModal.classList.add("modal_opened");
-}
-
-//function for closing review-picture-modal for profile
-function closeReviewPictureModal() {
-  reviewPictureModal.classList.remove("modal_opened");
-}
-
-//function for opening review-picture-modal for profile
-function openReviewPictureModal(evt) {
-  reviewPictureModal.classList.add("modal_opened");
-  let reviewPictureModalImage =
-    reviewPictureModal.querySelector(".modal__picture");
-  let reviewPictureCaption =
-    reviewPictureModal.querySelector(".modal_sub-heading");
-  reviewPictureCaption.textContent = evt.target.alt;
-  reviewPictureModalImage.src = evt.target.src;
-  reviewPictureModalImage.alt = evt.target.alt;
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 //copies cards
@@ -105,7 +74,16 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  cardImageEl.addEventListener("click", openReviewPictureModal);
+  cardImageEl.addEventListener("click", (evt) => {
+    openModal(reviewPictureModal);
+    let reviewPictureModalImage =
+      reviewPictureModal.querySelector(".modal__picture");
+    let reviewPictureCaption =
+      reviewPictureModal.querySelector(".modal_sub-heading");
+    reviewPictureCaption.textContent = evt.target.alt;
+    reviewPictureModalImage.src = evt.target.src;
+    reviewPictureModalImage.alt = evt.target.alt;
+  });
   //hint: use visibility: hidden
 
   likeButton.addEventListener("click", () => {
@@ -119,20 +97,32 @@ function getCardElement(cardData) {
 }
 
 //calls function that closes edit-modal for profile
-profileModalCloseBtn.addEventListener("click", closeProfileModal);
+profileModalCloseBtn.addEventListener("click", () => {
+  closeModal(profileEditModal);
+});
 
 //opens edit-modal for profile
-profileEditBtn.addEventListener("click", openProfileModal);
+profileEditBtn.addEventListener("click", () => {
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  openModal(profileEditModal);
+});
 
 //
-reviewPictureCloseBtn.addEventListener("click", closeReviewPictureModal);
+reviewPictureCloseBtn.addEventListener("click", () => {
+  closeModal(reviewPictureModal);
+});
 //
 
 //opens add-new-card
-addNewCardBtn.addEventListener("click", openCardAddModal);
+addNewCardBtn.addEventListener("click", () => {
+  openModal(cardAddModal);
+});
 
 //closes add-new-card
-cardModalCloseBtn.addEventListener("click", closeCardAddModal);
+cardModalCloseBtn.addEventListener("click", () => {
+  closeModal(cardAddModal);
+});
 
 //submits form with choosen changes to profile text
 profileEditForm.addEventListener("submit", (e) => {
@@ -148,6 +138,7 @@ cardAddForm.addEventListener("submit", (e) => {
   const cardData = { link: cardUrlInput.value, name: cardTitleInput.value };
   cardListEl.prepend(getCardElement(cardData));
   closeCardAddModal();
+  cardAddForm.reset();
 });
 
 initialCards.forEach((cardData) => {
