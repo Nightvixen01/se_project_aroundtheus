@@ -129,7 +129,7 @@ profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeProfileModal();
+  closeModal(profileEditModal);
 });
 
 //submits card with choosen changes to profile text
@@ -137,7 +137,7 @@ cardAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardData = { link: cardUrlInput.value, name: cardTitleInput.value };
   cardListEl.prepend(getCardElement(cardData));
-  closeCardAddModal();
+  closeModal(cardAddModal);
   cardAddForm.reset();
 });
 
