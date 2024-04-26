@@ -76,7 +76,7 @@ function getCardElement(cardData) {
 
   cardImageEl.addEventListener("click", (evt) => {
     openModal(reviewPictureModal);
-    let reviewPictureModalImage =
+    const reviewPictureModalImage =
       reviewPictureModal.querySelector(".modal__picture");
     const reviewPictureCaption =
       reviewPictureModal.querySelector(".modal_sub-heading");
