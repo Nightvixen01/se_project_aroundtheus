@@ -43,6 +43,9 @@
       </footer>
     </div>
 
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/validation.js" defer></script>
+
     <!--Edit Modal-->
     <div class="modal" id="profileEditModal">
       <div class="modal__container">
@@ -59,14 +62,25 @@
             placeholder="Name"
             name="title"
             id="profile-name-input"
+            required
+            minlength="2"
+            maxlength="40"
           />
+          <span class="modal__error" id="profile-name-input-error"></span>
           <input
             class="modal__text-box"
             type="text"
             placeholder="Description"
             name="description"
             id="profile-description-input"
+            required
+            minlength="2"
+            maxlength="200"
           />
+          <span
+            class="modal__error"
+            id="profile-description-input-error"
+          ></span>
           <button type="submit" class="modal__save-button">Save</button>
         </form>
       </div>
@@ -89,7 +103,11 @@
             placeholder="Title"
             name="title"
             id="card-title-input"
+            minlength="1"
+            maxlength="30"
+            required
           />
+          <span class="modal__error" id="card-title-input-error"></span>
           <input
             class="modal__text-box modal__text-box_type_url"
             type="url"
@@ -97,7 +115,9 @@
             required
             name="url"
             id="card-url-input"
+            pattern="https:"
           />
+          <span class="modal__error" id="card-url-input-error"></span>
           <button type="submit" class="modal__save-button">Save</button>
         </form>
       </div>
@@ -127,7 +147,5 @@
         </div>
       </li>
     </template>
-
-    <script src="scripts/index.js" defer></script>
   </body>
 </html>
