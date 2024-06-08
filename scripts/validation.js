@@ -68,7 +68,7 @@ const config = {
   inputSelector: ".modal__text-box",
   submitButtonSelector: "modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: ".modal__text-box_type_error",
+  inputErrorClass: "modal__text-box_type_error",
   errorClass: "modal__error_visible",
 };
 

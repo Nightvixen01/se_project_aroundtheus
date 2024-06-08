@@ -66,7 +66,9 @@
             minlength="2"
             maxlength="40"
           />
-          <span class="modal__error" id="profile-name-input-error"></span>
+          <label class="modal__error_label">
+            <span class="modal__error" id="profile-name-input-error"></span>
+          </label>
           <input
             class="modal__text-box"
             type="text"
@@ -77,10 +79,10 @@
             minlength="2"
             maxlength="200"
           />
-          <span
-            class="modal__error"
-            id="profile-description-input-error"
-          ></span>
+          <label class="modal__error_label">
+            <span class="modal__error" id="profile-description-input-error">
+            </span>
+          </label>
           <button type="submit" class="modal__save-button">Save</button>
         </form>
       </div>
@@ -107,7 +109,9 @@
             maxlength="30"
             required
           />
-          <span class="modal__error" id="card-title-input-error"></span>
+          <label class="modal__error_label"
+            ><span class="modal__error" id="card-title-input-error"></span
+          ></label>
           <input
             class="modal__text-box modal__text-box_type_url"
             type="url"
@@ -117,7 +121,9 @@
             id="card-url-input"
             pattern="https:"
           />
-          <span class="modal__error" id="card-url-input-error"></span>
+          <label class="modal__error_label"
+            ><span class="modal__error" id="card-url-input-error"></span
+          ></label>
           <button type="submit" class="modal__save-button">Save</button>
         </form>
       </div>

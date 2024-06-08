@@ -21,6 +21,12 @@
   line-height: 14.52px;
 }
 
+/* .modal__error_label {
+  position: relative;
+  position: absolute;
+  width: 100%;
+} */
+
 .modal__error_visible {
   opacity: 1;
 }
