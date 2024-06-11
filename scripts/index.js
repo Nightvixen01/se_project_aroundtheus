@@ -71,8 +71,10 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  currentlyOpenModal = null;
+  if (modal !== null) {
+    modal.classList.remove("modal_opened");
+    currentlyOpenModal = null;
+  }
 }
 
 //copies cards
