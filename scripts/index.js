@@ -24,7 +24,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
+const page = document.querySelector(".page");
 const profileName = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileEditModal = document.querySelector("#profileEditModal");
@@ -32,7 +32,7 @@ const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileModalCloseBtn = profileEditModal.querySelector(
   "#profileModal_close-button"
 );
-const ProfileEditModalContainer =
+const profileEditModalContainer =
   profileEditModal.querySelector(".modal__container");
 const profileNameInput = profileEditModal.querySelector("#profile-name-input");
 const profileDescriptionInput = profileEditModal.querySelector(
@@ -63,17 +63,30 @@ const modalContainers = document.querySelectorAll(
 
 const modals = document.querySelectorAll(".modal");
 
+const reviewPictureModalImage =
+  reviewPictureModal.querySelector(".modal__picture");
+const reviewPictureCaption =
+  reviewPictureModal.querySelector(".modal_sub-heading");
+
 let currentlyOpenModal = null;
+
+function escapeEventHandler(e) {
+  if (e.key === "Escape") {
+    closeModal(currentlyOpenModal);
+  }
+}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
   currentlyOpenModal = modal;
+  page.addEventListener("keydown", escapeEventHandler);
 }
 
 function closeModal(modal) {
   if (modal !== null) {
     modal.classList.remove("modal_opened");
     currentlyOpenModal = null;
+    page.removeEventListener("keydown", escapeEventHandler);
   }
 }
 
@@ -91,10 +104,6 @@ function getCardElement(cardData) {
 
   cardImageEl.addEventListener("click", (evt) => {
     openModal(reviewPictureModal);
-    const reviewPictureModalImage =
-      reviewPictureModal.querySelector(".modal__picture");
-    const reviewPictureCaption =
-      reviewPictureModal.querySelector(".modal_sub-heading");
     reviewPictureCaption.textContent = evt.target.alt;
     reviewPictureModalImage.src = evt.target.src;
     reviewPictureModalImage.alt = evt.target.alt;
@@ -162,7 +171,7 @@ initialCards.forEach((cardData) => {
   cardListEl.prepend(getCardElement(cardData));
 });
 
-document.addEventListener("click", (e) => {
+page.addEventListener("click", (e) => {
   if (currentlyOpenModal !== null) {
     closeModal(currentlyOpenModal);
   }
@@ -172,10 +181,4 @@ modalContainers.forEach((container) => {
   container.addEventListener("click", (e) => {
     e.stopPropagation();
   });
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeModal(currentlyOpenModal);
-  }
 });
