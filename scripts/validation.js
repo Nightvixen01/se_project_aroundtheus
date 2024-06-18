@@ -20,7 +20,7 @@ function checkInputValidity(formEl, inputEl, config) {
   }
 }
 
-function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+function toggleButtonState(inputEls, submitButton, config) {
   let foundInvalid = false;
   inputEls.forEach((inputEl) => {
     if (!inputEl.validity.valid) {
@@ -29,10 +29,10 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   });
 
   if (foundInvalid) {
-    submitButton.classList.add(inactiveButtonClass);
+    submitButton.classList.add(config.inactiveButtonClass);
     submitButton.disabled = true;
   } else {
-    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.classList.remove(config.inactiveButtonClass);
     submitButton.disabled = false;
   }
 }
@@ -64,7 +64,7 @@ function enableValidation(config) {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__text-box",
-  submitButtonSelector: "modal__save-button",
+  submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
   inputErrorClass: "modal__text-box_type_error",
   errorClass: "modal__error_visible",
