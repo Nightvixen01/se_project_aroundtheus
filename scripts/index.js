@@ -76,10 +76,17 @@ function escapeEventHandler(e) {
   }
 }
 
+function pageClickEventHandler(e) {
+  if (currentlyOpenModal !== null) {
+    closeModal(currentlyOpenModal);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   currentlyOpenModal = modal;
   page.addEventListener("keydown", escapeEventHandler);
+  page.addEventListener("click", pageClickEventHandler);
 }
 
 function closeModal(modal) {
@@ -87,6 +94,7 @@ function closeModal(modal) {
     modal.classList.remove("modal_opened");
     currentlyOpenModal = null;
     page.removeEventListener("keydown", escapeEventHandler);
+    page.removeEventListener("click", pageClickEventHandler);
   }
 }
 
@@ -169,12 +177,6 @@ cardAddForm.addEventListener("submit", (e) => {
 
 initialCards.forEach((cardData) => {
   cardListEl.prepend(getCardElement(cardData));
-});
-
-page.addEventListener("click", (e) => {
-  if (currentlyOpenModal !== null) {
-    closeModal(currentlyOpenModal);
-  }
 });
 
 modalContainers.forEach((container) => {
