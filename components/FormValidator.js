@@ -60,8 +60,7 @@ export default class FormValidator {
     });
 
     if (foundInvalid) {
-      submitButton.classList.add(config.inactiveButtonClass);
-      submitButton.disabled = true;
+      this.disableSubmitButton();
     } else {
       submitButton.classList.remove(config.inactiveButtonClass);
       submitButton.disabled = false;
