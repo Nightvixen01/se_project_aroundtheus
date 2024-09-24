@@ -8,20 +8,23 @@
     <meta name="author" content="Annabelle Neely" />
     <link rel="icon" href="favicon.ico" />
     <title>Around the U.S</title>
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
           class="header__image"
-          src="images/Vector.svg"
+          src="<%=require('./images/Vector.svg')%>"
           alt="Around the U.S.logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="images/Avatar.svg" alt="Avatar" class="profile__image" />
+          <img
+            src="<%=require('./images/Avatar.svg')%>"
+            alt="Avatar"
+            class="profile__image"
+          />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -42,8 +45,6 @@
         <p class="footer__copyright">&copy; 2022 Around The U.S</p>
       </footer>
     </div>
-
-    <script src="pages/index.js" type="module"></script>
 
     <!--Edit Modal-->
     <div class="modal" id="profileEditModal">
