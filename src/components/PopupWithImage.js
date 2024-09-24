@@ -2,11 +2,10 @@ import Popup from "../components/Popup.js";
 export default class PopupWithImage extends Popup {
   constructor(selector) {
     super(selector);
-    const reviewPictureModal = document.querySelector(selector);
     this._reviewPictureModalImage =
-      reviewPictureModal.querySelector(".modal__picture");
+      this._popupEl.querySelector(".modal__picture");
     this._reviewPictureCaption =
-      reviewPictureModal.querySelector(".modal_sub-heading");
+      this._popupEl.querySelector(".modal_sub-heading");
   }
 
   open(data) {

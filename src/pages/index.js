@@ -4,7 +4,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
-import "../pages/index.css";
+import "./index.css";
 import { initialCards, config } from "../utils/constants.js";
 
 //static page items
@@ -13,10 +13,6 @@ const addNewCardBtn = document.querySelector(".profile__add-button");
 const profileNameInput = profileEditModal.querySelector("#profile-name-input");
 const profileDescriptionInput = profileEditModal.querySelector(
   "#profile-description-input"
-);
-
-const modalContainers = document.querySelectorAll(
-  ".modal__picture_container, .modal__container"
 );
 
 //section object to host cards
@@ -45,7 +41,10 @@ const profilePopup = new PopupWithForm("#profileEditModal", (data) => {
 profilePopup.setEventListeners();
 
 //UserInfo
-const userInfo = new UserInfo({ name: "Jacques", job: "Explorer" });
+const userInfo = new UserInfo({
+  name: ".profile__title",
+  job: ".profile__description",
+});
 
 function cardImageClickHandler(evt) {
   cardImagePopup.open({ alt: evt.target.alt, src: evt.target.src });
@@ -67,16 +66,19 @@ addNewCardBtn.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-function createCard(cardData) {
-  const newCard = new Card(cardData, "#card-template", cardImageClickHandler);
-  section.addItem(newCard.getCardElement());
+function generateCard(cardData) {
+  const cardElement = new Card(
+    cardData,
+    "#card-template",
+    cardImageClickHandler
+  );
+  return cardElement.getCardElement();
 }
 
-modalContainers.forEach((container) => {
-  container.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-});
+function createCard(cardData) {
+  const newCard = generateCard(cardData);
+  section.addItem(newCard);
+}
 
 const formValidatorMap = {};
 const formEls = Array.from(document.querySelectorAll(config.formSelector));

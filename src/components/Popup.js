@@ -8,8 +8,9 @@ export default class Popup {
     this._keydownHandler = (e) => {
       this._handleEscClose(e);
     };
-    this._clickHandler = () => {
+    this._clickHandler = (e) => {
       this.close();
+      e.stopPropagation();
     };
   }
 
