@@ -10,7 +10,6 @@ export default class Popup {
       this._handleEscClose(e);
     };
     this._clickHandler = (e) => {
-      console.log(e.target);
       this.close();
       e.stopPropagation();
     };
